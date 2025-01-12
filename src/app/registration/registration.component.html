@@ -1,0 +1,117 @@
+  <div class="container">
+    <mat-horizontal-stepper [linear]="true" class="stepper" [selectedIndex]="currentStep">
+      <mat-step label="Register">
+        <ng-container *ngTemplateOutlet="registrationFormTemplate"></ng-container>
+      </mat-step>
+  
+      <mat-step label="Complete">
+        <div class="completion-message">
+          <h2>Thank you for registering!</h2>
+          <p>
+            You should receive a confirmation email momentarily containing
+            additional details.
+          </p>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  
+  <div class="footer">
+    &copy; Copyright 2025
+  </div>
+  
+  <ng-template #registrationFormTemplate>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group mb-3">
+        <label for="firstName">First Name: <span class="text-danger">*</span></label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          formControlName="firstName"
+          [ngClass]="{ 'is-invalid': submitted && formControls['firstName'].errors }"
+        />
+        <div *ngIf="submitted && formControls['firstName'].errors" class="invalid-feedback">
+          First Name is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="lastName">Last Name: <span class="text-danger">*</span></label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          formControlName="lastName"
+          [ngClass]="{ 'is-invalid': submitted && formControls['lastName'].errors }"
+        />
+        <div *ngIf="submitted && formControls['lastName'].errors" class="invalid-feedback">
+          Last Name is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="state">State: <span class="text-danger">*</span></label>
+        <select
+          id="state"
+          class="form-control"
+          formControlName="state"
+          [ngClass]="{ 'is-invalid': submitted && formControls['state'].errors }"
+        >
+          <option value="">Select State</option>
+          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select>
+        <div *ngIf="submitted && formControls['state'].errors" class="invalid-feedback">
+          State is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="email">Email: <span class="text-danger">*</span></label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          [ngClass]="{ 'is-invalid': submitted && formControls['email'].errors }"
+        />
+        <div *ngIf="submitted && formControls['email'].errors" class="invalid-feedback">
+          Valid email is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="confirmEmail">Confirm Email: <span class="text-danger">*</span></label>
+        <input
+          type="email"
+          id="confirmEmail"
+          class="form-control"
+          formControlName="confirmEmail"
+          [ngClass]="{ 'is-invalid': submitted && (formControls['confirmEmail'].errors || (registrationForm.errors!=null && registrationForm.errors['emailMismatch']))}"
+        />
+        <div *ngIf="submitted && formControls['confirmEmail'].errors" class="invalid-feedback">
+          Confirm email is required.
+        </div>
+        <div *ngIf="submitted && registrationForm.errors!=null && registrationForm.errors['emailMismatch']" class="invalid-feedback">
+          Emails must match.
+        </div>
+      </div>
+
+      <div class="form-group form-check mb-3">
+        <input
+          type="checkbox"
+          id="subscribe"
+          class="form-check-input"
+          formControlName="subscribe"
+        />
+        <label for="subscribe" class="form-check-label">Subscribe to Newsletter</label>
+      </div>
+      <div *ngIf="apiErrorMessage" class="alert alert-danger">{{ apiErrorMessage }}</div>
+
+      <div class="form-group form-check">
+        <button type="submit" class="btn btn-dark-blue">Continue</button>
+      </div>
+    </form>
+  </ng-template>
+  
