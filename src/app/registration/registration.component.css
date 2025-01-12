@@ -1,22 +1,21 @@
-/* General Mobile-Friendly Adjustments */
 @media (max-width: 600px) {
   .stepper {
-    width: 90%; /* Full width with a slight margin */
+    width: 90%;
     margin: 0 auto;
   }
 
   form {
-    padding: 15px; /* Reduce padding for smaller screens */
-    gap: 10px; /* Reduce gap between fields */
+    padding: 15px;
+    gap: 10px;
   }
 
   input, select, button {
-    font-size: 14px; /* Slightly smaller font for mobile */
+    font-size: 14px;
   }
 
   button {
-    width: 100%; /* Full-width buttons on mobile */
-    align-self: center; /* Center button on mobile */
+    width: 100%;
+    align-self: center;
   }
 
   .form-check {
@@ -25,12 +24,11 @@
   }
 
   .form-check-label {
-    padding-top: 0; /* Align label properly with the checkbox */
+    padding-top: 0;
     margin-left: 5px;
   }
 }
 
-/* Header */
 .header {
   background-color: #2988b5;
   padding: 20px;
@@ -41,7 +39,6 @@
   height: 50px;
 }
 
-/* Footer */
 .footer {
   background-color: #aaaaaa;
   color: #555555;
@@ -49,10 +46,9 @@
   padding: 10px 0;
 }
 
-/* Stepper */
 .stepper {
   margin: 20px auto;
-  width: 50%; /* Adjusted for desktop */
+  width: 50%;
   max-width: 600px;
 }
 
@@ -61,12 +57,11 @@
   width: 100%;
 }
 
-/* Form Styles */
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 600px; /* Limit the form's width */
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -75,7 +70,6 @@ form {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Input and Select Fields */
 input, select {
   padding: 10px;
   font-size: 14px;
@@ -84,7 +78,6 @@ input, select {
   width: 100%;
 }
 
-/* Checkbox Container */
 .form-check {
   display: flex;
   align-items: center;
@@ -98,7 +91,6 @@ input, select {
   margin-left: 5px;
 }
 
-/* Error Messages */
 .error {
   color: #a93a44;
   background-color: #ffe8e8;
@@ -108,27 +100,25 @@ input, select {
 
 .mat-error {
   font-size: 12px;
-  color: #a93a44; /* Dark Red */
-  margin-top: -10px; /* Adjust spacing to make it visually balanced */
+  color: #a93a44;
+  margin-top: -10px;
 }
 
-/* Button Styling */
 button {
-  width: 30%; /* Default for desktop */
+  width: 30%;
   background-color: #1b5875;
   color: white;
   font-size: 16px;
   padding: 10px 0;
   border-radius: 4px;
   cursor: pointer;
-  align-self: flex-end; /* Align button to the right */
+  align-self: flex-end;
 }
 
 button:hover {
   background-color: #2988b5;
 }
 
-/* Completion Message */
 .completion-message {
   text-align: center;
   margin: 20px 0;
